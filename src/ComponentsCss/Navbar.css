@@ -1,0 +1,17 @@
+.nav-link{
+    color: white !important;
+}
+.nav-link:hover{
+    color:gray !important
+}
+.form-control{
+    min-width: 100px;
+    width: 300px !important;
+    transition: width .5s !important;
+}
+.form-control:focus{
+    width: 600px !important;
+}
+.mr-auto{
+    margin-right: 5px !important;
+}
