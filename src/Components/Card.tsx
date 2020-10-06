@@ -1,24 +1,31 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import Card from 'react-bootstrap/Card'
-
+import '../ComponentsCss/CardsArea.css'
+import { add, selectCard } from '../Redux/Reducers/CardReducer'
+import { useSelector, useDispatch } from 'react-redux';
 
 export const Cards: React.FC = () => {
 
+    const CardInfo = useSelector(selectCard)
+
+
 
     return (
-        
-        <Card style={{ width: '18rem', margin:'10px 0 0 10px' }} >
-            <Card.Img variant="top" src="https://99px.ru/sstorage/53/2019/03/tmb_254669_381281.jpg" />
-            <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-    </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-        </Card>
+
+        <div className="cardsArea">
+            {CardInfo.filter((item:any)=>item.id!==undefined).map((i: any) =>
+                <Card style={{ width: '18rem', margin: '10px 0 0 15px', display: 'flex', }} >
+                    <Card.Img variant="top" src={i.url} />
+                    <Card.Body>
+                        <Card.Title>{i.name}</Card.Title>
+                        <Card.Text>{i.discription}</Card.Text>
+                        <Card.Title>Примерная стоимость:{i.cost}</Card.Title>
+                        <Button variant="primary">Go somewhere</Button>
+                    </Card.Body>
+                </Card >
+            )}
+        </div>
     )
 
 

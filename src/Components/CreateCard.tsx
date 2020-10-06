@@ -1,8 +1,14 @@
 import React, { useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap';
 import '../ComponentsCss/CreateCard.css'
+import { add, selectCard } from '../Redux/Reducers/CardReducer'
+import { useSelector, useDispatch } from 'react-redux';
+
 
 export const ModalCard: React.FC = () => {
+
+    const dispatch = useDispatch();
+
 
     const [show, setShow] = useState(false);
     const [url, setUrl] = useState('https://sun9-25.userapi.com/6V8SiT2jlInrAhZMB1mpC-vcHF_Y9-_hO71cQg/3WkpkZyoPQk.jpg')
@@ -10,9 +16,6 @@ export const ModalCard: React.FC = () => {
     const [cost, setCost] = useState('')
     const [type, SetType] = useState('')
     const [discription, setDiscription] = useState('')
-
-
-
 
 
     const handleClose = () => setShow(false);
@@ -41,6 +44,16 @@ export const ModalCard: React.FC = () => {
         } else if (discription === '') {
             return alert('Введите описание продукта')
         }
+
+        dispatch(add({
+            url: url,
+            name: name,
+            cost: cost,
+            type: type,
+            discription: discription,
+            stars: 0,
+            id: new Date().getTime(),
+        }))
 
         setShow(false)
 
@@ -102,7 +115,7 @@ export const ModalCard: React.FC = () => {
 
                     <div className="cost form-item">
                         <p>Введите стоимость:</p>
-                        <input type="text" className="input" value={cost} onChange={e => setCost(e.target.value.replace(/\D/,''))} />
+                        <input type="text" className="input" value={cost} onChange={e => setCost(e.target.value.replace(/\D/, ''))} />
                     </div>
 
 
