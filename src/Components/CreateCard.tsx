@@ -3,6 +3,8 @@ import { Button, Form, Modal } from 'react-bootstrap';
 import '../ComponentsCss/CreateCard.css'
 import { add, selectCard } from '../Redux/Reducers/CardReducer'
 import { useSelector, useDispatch } from 'react-redux';
+import app from 'firebase/app'
+import 'firebase/database'
 
 
 export const ModalCard: React.FC = () => {
@@ -14,7 +16,7 @@ export const ModalCard: React.FC = () => {
     const [url, setUrl] = useState('https://sun9-25.userapi.com/6V8SiT2jlInrAhZMB1mpC-vcHF_Y9-_hO71cQg/3WkpkZyoPQk.jpg')
     const [name, setName] = useState('')
     const [cost, setCost] = useState('')
-    const [type, SetType] = useState('')
+    const [type, SetType] = useState('Вино')
     const [discription, setDiscription] = useState('')
 
 
@@ -45,15 +47,35 @@ export const ModalCard: React.FC = () => {
             return alert('Введите описание продукта')
         }
 
-        dispatch(add({
+        let link = app.database().ref('/cards').push().key;
+
+
+
+        //загрузка сообщений на сервер
+        app.database().ref('cards/' + link).update({
             url: url,
             name: name,
             cost: cost,
             type: type,
             discription: discription,
             stars: 0,
-            id: new Date().getTime(),
-        }))
+            id: link,
+            dateOfCreation: new Date().toLocaleDateString(),
+        }).then(() => {
+            //отправки сообщений в store
+            dispatch(add({
+                url: url,
+                name: name,
+                cost: cost,
+                type: type,
+                discription: discription,
+                stars: 0,
+                id: link,
+                dateOfCreation: new Date().toLocaleDateString(),
+            }))
+        })
+
+
 
         setShow(false)
 
