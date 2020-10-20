@@ -6,11 +6,16 @@ import { add, addStar, selectCard } from '../Redux/Reducers/CardReducer'
 import { useSelector, useDispatch } from 'react-redux';
 import ReactStars from 'react-stars'
 import app from 'firebase/app'
+import {CardInfo} from '../Interfaces/Interfaces'
+
+type CardProp={
+    CardInfo: CardInfo[]
+}
 
 
-export const Cards: React.FC = () => {
+export const Cards: React.FC<CardProp> = ({CardInfo}) => {
 
-    const CardInfo = useSelector(selectCard)
+    // const CardInfo = useSelector(selectCard)
     const dispatch = useDispatch();
 
 

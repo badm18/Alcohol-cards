@@ -3,6 +3,8 @@ import './App.css';
 import * as app from "firebase/app";
 import { CardPage } from './Pages/CardsPage';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { requestPage } from './Pages/requestPage';
+import { NavBar } from './Components/Navbar';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBFKCNdgeqg4FyT4cU4fQ_9ZiZu7gXXaYQ",
@@ -21,10 +23,14 @@ const App: React.FC = () => {
 
 
   return (
-    <BrowserRouter>
-      <Route exact path="/" component={CardPage} />
-    </BrowserRouter>
-
+    <>
+   
+      <BrowserRouter>
+      <NavBar />
+        <Route exact path="/" component={CardPage} />
+        <Route exact path={"/request/:name"} component={requestPage} />
+      </BrowserRouter>
+    </>
   );
 }
 
