@@ -1,0 +1,21 @@
+.selector{
+    border-radius: 6px;
+    margin-left:5px;
+    min-width: 165px;
+    max-width: 165px;
+    position: absolute;
+    z-index: 1;
+}
+.selector:hover{
+    cursor: pointer;
+}
+.items{
+    padding-left: 5px;
+}
+.items:hover{
+    cursor: pointer;
+    background: gray;
+}
+#downArrow{
+    margin-left: 5px;
+}

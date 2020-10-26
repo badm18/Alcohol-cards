@@ -61,6 +61,7 @@ export const ModalCard: React.FC = () => {
             stars: 0,
             id: link,
             dateOfCreation: new Date().toLocaleDateString(),
+            favorites:false
         }).then(() => {
             //отправки сообщений в store
             dispatch(add({
@@ -72,6 +73,7 @@ export const ModalCard: React.FC = () => {
                 stars: 0,
                 id: link,
                 dateOfCreation: new Date().toLocaleDateString(),
+                favorites:false
             }))
         })
 

@@ -1,0 +1,18 @@
+#acloImg{
+    width: 300px;
+    height: 300px;
+}
+.top{
+    display: flex;
+
+}
+.topInfo{
+    margin-left:10px
+}
+
+
+@media screen and (max-width: 992px) {
+   .top {
+      flex-wrap: wrap;
+    }
+  }

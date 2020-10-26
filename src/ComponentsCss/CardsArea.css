@@ -3,3 +3,26 @@
     flex-wrap: wrap;
     margin-top:10px;
 }
+#heartIconTrue{
+    fill:red   
+}
+#heartIcon{
+    fill:none
+}
+#heartIcon:hover{
+    cursor: pointer;
+    fill:gray
+}
+#heartIconTrue:hover{
+    cursor: pointer;
+    fill:gray
+}
+.bottomCard{
+    display: flex;
+}
+.like{
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+

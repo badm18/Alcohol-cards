@@ -7,4 +7,5 @@ export interface CardInfo{
     stars: number,
     id: string,
     dateOfCreation: string,
+    favorites:boolean,
 }

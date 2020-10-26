@@ -1,6 +1,6 @@
-import React, { KeyboardEventHandler, useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
-import { NavLink, Redirect, useHistory } from 'react-router-dom'
+import { NavLink,  useHistory } from 'react-router-dom'
 import '../ComponentsCss/Navbar.css'
 import CSS from 'csstype';
 import app from 'firebase/app'
@@ -59,7 +59,7 @@ export const NavBar: React.FC = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link><NavLink to='/' id='cardLink'>Карточки</NavLink></Nav.Link>
-            <Nav.Link href="#link">Избранное</Nav.Link>
+            <Nav.Link><NavLink to="/favorites" id='cardLink'>Избранное</NavLink></Nav.Link>
           </Nav>
           <Form inline>
             <div className="smartInput">

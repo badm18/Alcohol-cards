@@ -20,6 +20,7 @@ p{
 .uploadType{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 .form-group{
     width: 100%;
@@ -63,4 +64,18 @@ p{
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
+}
+
+@media screen and (max-width:472px){
+    .urlArea{
+        display: flex;
+        flex-direction: column;
+    }
+    .form-item{
+        display: flex;
+        flex-direction: column;
+    }
+    input{
+        width: 120px;
+    }
 }
